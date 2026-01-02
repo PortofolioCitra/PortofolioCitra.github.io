@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Try Out UTBK</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<div class="top-bar">
+  <h2>TRY OUT UTBK</h2>
+  <div id="timer">195:00</div>
+</div>
+
+<div class="quiz-container">
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="quiz-main">
+    <h3 id="questionTitle"></h3>
+    <div id="options"></div>
+
+    <div class="quiz-controls">
+      <button onclick="prevQuestion()">Sebelumnya</button>
+      <button onclick="toggleFlag()">Tandai Soal</button>
+      <button onclick="nextQuestion()">Selanjutnya</button>
+    </div>
+
+    <button class="submit-btn" onclick="submitTryout()">Submit Try Out</button>
+  </main>
+</div>
+
+<script src="js/tryout-engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Harian UTBK</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<div class="dashboard">
+  <header class="topbar">
+    <h2>Quiz Harian</h2>
+    <a href="dashboard.html" class="logout">Kembali</a>
+  </header>
+
+  <!-- SUBTEST -->
+  <section class="subtest-grid" id="subtestGrid"></section>
+
+  <!-- DAY LIST -->
+  <section class="day-list hidden" id="dayList">
+    <h3 id="selectedSubtest"></h3>
+    <div class="days" id="daysContainer"></div>
+  </section>
+</div>
+
+<script src="js/auth.js"></script>
+<script src="js/quiz.js"></script>
+</body>
+</html>

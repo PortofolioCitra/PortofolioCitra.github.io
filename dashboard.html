@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard UTBK</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="dashboard">
+    <header class="topbar">
+      <h2>Dashboard</h2>
+      <div class="topbar-actions">
+        <button class="logout" onclick="logout()">Keluar</button>
+        <button id="themeToggle" class="theme-btn" title="Toggle Dark/Light Mode">🌙</button>
+      </div>
+    </header>
+
+    <section class="stats">
+      <div class="stat-card">
+        <h3>Total Soal</h3>
+        <p id="totalSoal">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Benar</h3>
+        <p id="totalBenar">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Salah</h3>
+        <p id="totalSalah">0</p>
+      </div>
+      <div class="stat-card highlight">
+        <h3>Total Poin</h3>
+        <p id="totalPoin">0</p>
+      </div>
+    </section>
+
+    <section class="menu">
+      <a href="ebook.html" class="menu-card">
+        <div>📘</div>
+        <h3>Ebook</h3>
+        <p>Akses materi pembelajaran</p>
+      </a>
+      <a href="quiz.html" class="menu-card">
+        <div>🧠</div>
+        <h3>Quiz Harian</h3>
+        <p>Latihan soal setiap hari</p>
+      </a>
+      <a href="tryout.html" class="menu-card">
+        <div>⏱️</div>
+        <h3>Try Out</h3>
+        <p>Simulasi ujian UTBK</p>
+      </a>
+      <a href="#" id="waLink" class="menu-card hidden">
+        <div>💬</div>
+        <h3>Grup Belajar</h3>
+        <p>Bergabung dengan komunitas</p>
+      </a>
+    </section>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script>
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const icon = themeToggle.querySelector('span') || themeToggle; // Assuming icon is in textContent
+
+    // Load saved theme from localStorage
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    body.classList.toggle('light', savedTheme === 'light');
+    updateThemeIcon(savedTheme);
+
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+      const isLight = body.classList.toggle('light');
+      const theme = isLight ? 'light' : 'dark';
+      localStorage.setItem('theme', theme);
+      updateThemeIcon(theme);
+    });
+
+    function updateThemeIcon(theme) {
+      themeToggle.textContent = theme === 'light' ? '☀️' : '🌙';
+      themeToggle.setAttribute('title', theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode');
+    }
+  </script>
+</body>
+</html>
